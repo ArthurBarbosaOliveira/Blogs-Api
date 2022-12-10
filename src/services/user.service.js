@@ -32,6 +32,10 @@ const userService = {
         const users = await db.User.findAll({ attributes: { exclude: ['password'] } });
             return users;
     },
+    getById: async (id) => {
+        const users = await db.User.findByPk(id, { attributes: { exclude: ['password'] } });
+            return users;
+    },
 };
 
 module.exports = userService;
