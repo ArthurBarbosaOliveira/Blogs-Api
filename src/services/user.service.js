@@ -26,7 +26,11 @@ const userService = {
             return res.status(400)
         .json({ message: '"password" length must be at least 6 characters long' }); 
 }
-        return next();     
+            return next();     
+    },
+    getAllUsers: async () => {
+        const users = await db.User.findAll({ attributes: { exclude: ['password'] } });
+            return users;
     },
 };
 
