@@ -1,4 +1,4 @@
-const db = require('../models');
+const db = require('../models/index');
 
 const loginService = { 
     checkEmail: (email, password) => {

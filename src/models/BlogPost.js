@@ -1,5 +1,5 @@
-const blog_posts = (sequelize, DataTypes) => {
-    const blog_posts = sequelize.define("blog_posts", {
+const BlogPost = (sequelize, DataTypes) => {
+    const BlogPost = sequelize.define("BlogPost", {
       id: {        
         allowNull: false,
         autoIncrement: true,
@@ -15,6 +15,7 @@ const blog_posts = (sequelize, DataTypes) => {
         type: DataTypes.STRING
       },
       userId: {
+        foreignKey: true,
         allowNull: false,
         type: DataTypes.INTEGER
       },
@@ -36,7 +37,7 @@ const blog_posts = (sequelize, DataTypes) => {
       blog_posts.belongsTo(models.User,
           { foreignKey: 'userId', as: 'users' });
       };
-    return blog_posts;
+    return BlogPost;
   };
 
-module.exports = blog_posts;
+module.exports = BlogPost;
