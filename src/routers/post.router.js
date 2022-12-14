@@ -7,7 +7,7 @@ const postController = require('../controllers/post.controller');
 
 const router = Router();
 
-router.post('/', validateJwt, postController.create);
+// router.post('/', validateJwt, postController.create);
 router.get('/', validateJwt, postController.getAll);
 
 module.exports = router;
