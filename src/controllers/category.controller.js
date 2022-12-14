@@ -11,6 +11,11 @@ const categoryController = {
             return res.status(201)
         .json({ newCategory, name });
     },
+    getAllUser: async (req, res) => {
+        const response = await categoryService.getAllUsers();
+            return res.status(200)
+        .json(response);
+    },
 };
 
 module.exports = categoryController;

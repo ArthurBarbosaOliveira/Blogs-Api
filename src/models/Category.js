@@ -15,8 +15,12 @@ const Category = (sequelize, DataTypes) => {
         timestamps: false,
         underscored: true,
         tableName: 'categories'
-    });     
-    
+    });
+    /*Category.associate = (models) => {
+      Category.belongsToMany(models.PostCategory,
+        { foreignKey: 'category_id', as: 'PostCategory' });
+    };         
+    */
     return Category;
   };
 

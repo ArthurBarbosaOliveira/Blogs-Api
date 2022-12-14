@@ -20,10 +20,12 @@ const BlogPost = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER
       },
       published: {
-        type: DataTypes.DATE
+        type: DataTypes.DATE, 
+        defaultValue: DataTypes.NOW
       },
       updated: {        
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW
       },
     },
     {
@@ -35,8 +37,12 @@ const BlogPost = (sequelize, DataTypes) => {
     });     
     BlogPost.associate = (models) => {
       BlogPost.belongsTo(models.User,
-          { foreignKey: 'userId', as: 'users' });
+          { foreignKey: 'userId', as: 'user' });
       };
+    /*BlogPost.associate = (models) => {
+        BlogPost.belongsToMany(models.PostCategory,
+            { foreignKey: 'post_id', as: 'PostCategory' });
+        };*/
     return BlogPost;
   };
 
